@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <style type="text/css">
+        #div_map {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+        }
+    </style>
+</head>
+<body>
+	<div id="div_map"></div>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=debc504efbe70c0daa2b2981d323ac85"></script> 
+	<script type="text/javascript" charset="utf-8">
+      	mui.init();
+/*==============================创建地图===============================================*/
+      	var map = new AMap.Map('div_map', {
+            zoom:11,//级别
+            //center:[116,39],//中心点坐标
+        });
+/*======================加入地图控件==========================================================*/
+        // 同时引入工具条插件，比例尺插件和鹰眼插件
+		AMap.plugin([
+		    'AMap.ToolBar',
+		    'AMap.Scale',
+		], function(){
+		    // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+		    map.addControl(new AMap.ToolBar());
+		
+		    // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+		    map.addControl(new AMap.Scale());
+		});
+/*=============================与服务器通信================================================*/
+		var ws = new WebSocket("ws://www.bigiot.net:8383");
+		ws.onmessage=function(evt){
+			resMsg = JSON.parse(evt.data)
+			console.log("收到原始数据： "+evt.data)
+			switch(resMsg.M){
+				case "WELCOME TO BIGIOT":
+					console.log("收到wc")
+					break;
+				case "ping":
+					ws.send('{"M":"beat"}')
+					break;				
+			}
+			
+		}
+	</script>
+</body>
+</html>
