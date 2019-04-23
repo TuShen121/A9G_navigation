@@ -4,57 +4,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
-    <script src="js/mui.min.js"></script>
+    
     <link href="css/mui.min.css" rel="stylesheet"/>
-    <style type="text/css">
-        #div_map {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 100%;
-          height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+
 </head>
 <body>
 	<div id="div_map"></div>
+	<header class="mui-bar mui-bar-nav">
+	    <a id="btn_meanu" class=" mui-icon mui-icon-map mui-pull-right"></a>
+	    <h1 class="mui-title">防丢追踪器</h1>
+	</header>
+	<div id="div_right_side">
+		<input type="button" name="" id="" value="rd" />
+		<br />
+		<input type="button" name="" id="" value="lk" />
+		<br />
+		<input type="button" name="" id="" value="he" />
+		<br />
+		<input type="button" name="" id="" value="me" />
+	</div>
+	<div id="div_view">
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<td class="tb_1">ID</td> 
+				<td class="tb_2" ><input type="text" name="" id="" value="" /></td>
+			</tr>
+			<tr>
+				<td class="tb_1">Key</td> 
+				<td class="tb_2" ><input type="text" name="" id="" value="" /></td>
+			</tr>
+
+			<tr>
+				<td class="tb_btn_line_1" colspan="2"><!--合并单元格-->
+					<input type="button" name="" id="" value="取消" />
+				<!--</td>
+				<td >-->
+					<input type="button" name="" id="" value="确定" />
+				</td>
+			</tr>
+			<tr>
+				<td class="tb_1">方式</td> 
+				<td class="tb_2" >LBS</td>
+			</tr>
+			<tr>
+				<td class="tb_1">经度</td> 
+				<td class="tb_2" >0.00</td>
+			</tr>
+			<tr>
+				<td class="tb_1">纬度</td> 
+				<td class="tb_2" >0.00</td>
+			</tr>
+			<tr>
+				<td class="tb_1">电量</td> 
+				<td class="tb_2" >0.00</td>
+			</tr>
+			<tr>
+				<td class="tb_1">丢失</td> 
+				<td class="tb_2" >0.00</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=debc504efbe70c0daa2b2981d323ac85"></script> 
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
       	mui.init();
-/*==============================创建地图===============================================*/
-      	var map = new AMap.Map('div_map', {
-            zoom:11,//级别
-            //center:[116,39],//中心点坐标
-        });
-/*======================加入地图控件==========================================================*/
-        // 同时引入工具条插件，比例尺插件和鹰眼插件
-		AMap.plugin([
-		    'AMap.ToolBar',
-		    'AMap.Scale',
-		], function(){
-		    // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
-		    map.addControl(new AMap.ToolBar());
-		
-		    // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
-		    map.addControl(new AMap.Scale());
-		});
-/*=============================与服务器通信================================================*/
-		var ws = new WebSocket("ws://www.bigiot.net:8383");
-		ws.onmessage=function(evt){
-			resMsg = JSON.parse(evt.data)
-			console.log("收到原始数据： "+evt.data)
-			switch(resMsg.M){
-				case "WELCOME TO BIGIOT":
-					console.log("收到wc")
-					break;
-				case "ping":
-					ws.send('{"M":"beat"}')
-					break;				
-			}
-			
-		}
+
 	</script>
 </body>
 </html>

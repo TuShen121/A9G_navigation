@@ -1,0 +1,61 @@
+#div_map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+#div_right_side{
+	position: absolute;
+	right: 10px;
+	top: 250px;
+}
+#div_right_side > input{	
+	padding: 8px;
+	width: 35px;
+	margin-top: 8px;
+}
+#div_view{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	
+	background-color: whitesmoke;
+	padding: 20px;
+	width: 80%;
+	top: 100px;
+	
+	display: none;
+}
+#div_view>table{
+	margin: auto;
+	width: 90%;
+
+	
+}
+#div_view>table>tr{
+	background-color: #007AFF;
+}
+.tb_1{
+	width: 30%;
+}
+.tb_2{
+	width: 70%;
+}
+.tb_2 > input[type=text]{
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+}
+.tb_2 > input[type=text]{
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+}
+.tb_btn_line_1{
+	width: 50%;
+	text-align: center;
+}
