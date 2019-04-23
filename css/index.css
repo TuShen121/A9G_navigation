@@ -1,5 +1,5 @@
 #div_map {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -29,12 +29,12 @@
 	top: 100px;
 	
 	display: none;
+	
+	z-index: 99;
 }
 #div_view>table{
 	margin: auto;
 	width: 90%;
-
-	
 }
 #div_view>table>tr{
 	background-color: #007AFF;

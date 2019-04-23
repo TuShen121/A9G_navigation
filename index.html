@@ -16,59 +16,79 @@
 	    <h1 class="mui-title">防丢追踪器</h1>
 	</header>
 	<div id="div_right_side">
-		<input type="button" name="" id="" value="rd" />
+		<input type="button" name="" id="rd" value="rd" />
 		<br />
-		<input type="button" name="" id="" value="lk" />
+		<input type="button" name="" id="lk" value="lk" />
 		<br />
-		<input type="button" name="" id="" value="he" />
+		<input type="button" name="" id="he" value="he" />
 		<br />
-		<input type="button" name="" id="" value="me" />
+		<input type="button" name="" id="me" value="me" />
 	</div>
 	<div id="div_view">
 		<table border="" cellspacing="" cellpadding="">
 			<tr>
 				<td class="tb_1">ID</td> 
-				<td class="tb_2" ><input type="text" name="" id="" value="" /></td>
+				<td class="tb_2" ><input type="text" name="" id="ipt_id" value="" /></td>
 			</tr>
 			<tr>
 				<td class="tb_1">Key</td> 
-				<td class="tb_2" ><input type="text" name="" id="" value="" /></td>
+				<td class="tb_2" ><input type="text" name="" id="ipt_key" value="" /></td>
 			</tr>
 
 			<tr>
 				<td class="tb_btn_line_1" colspan="2"><!--合并单元格-->
-					<input type="button" name="" id="" value="取消" />
+					<input type="button" name="" id="btn_cancel" value="取消" />
 				<!--</td>
 				<td >-->
-					<input type="button" name="" id="" value="确定" />
+					<input type="button" name="" id="btn_ok" value="确定" />
 				</td>
 			</tr>
 			<tr>
 				<td class="tb_1">方式</td> 
-				<td class="tb_2" >LBS</td>
+				<td class="tb_2" id="tex_geo_way">LBS</td>
 			</tr>
 			<tr>
 				<td class="tb_1">经度</td> 
-				<td class="tb_2" >0.00</td>
+				<td class="tb_2" id="tex_geo_long">0.00</td>
 			</tr>
 			<tr>
 				<td class="tb_1">纬度</td> 
-				<td class="tb_2" >0.00</td>
+				<td class="tb_2" id="tex_geo_lat">0.00</td>
 			</tr>
 			<tr>
 				<td class="tb_1">电量</td> 
-				<td class="tb_2" >0.00</td>
+				<td class="tb_2" id="tex_power">0.00</td>
 			</tr>
 			<tr>
 				<td class="tb_1">丢失</td> 
-				<td class="tb_2" >0.00</td>
+				<td class="tb_2" id="tex_lose">0.00</td>
+			</tr>
+			<tr>
+				<td class="tb_1">速度</td> 
+				<td class="tb_2" id="tex_speed">0.00</td>
+			</tr>
+			<tr>
+				<td class="tb_1">阈值</td> 
+				<td class="tb_2" ><input type="text" name="" id="ipt_speed" value="10" /></td>
+			</tr>
+
+			<tr>
+				<td class="tb_btn_line_1" colspan="2"><!--合并单元格-->
+					<input type="button" name="" id="btn_speed_cancel" value="取消" />
+				<!--</td>
+				<td >-->
+					<input type="button" name="" id="btn_speed_ok" value="确定" />
+				</td>
 			</tr>
 		</table>
 	</div>
 
 	<script src="js/mui.min.js"></script>
 	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=debc504efbe70c0daa2b2981d323ac85"></script> 
+	
+	<!--<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.14&key=debc504efbe70c0daa2b2981d323ac85"></script> 
+	-->
+	<script src="https://webapi.amap.com/maps?v=1.4.14&key=debc504efbe70c0daa2b2981d323ac85&plugin=AMap.Driving"></script>
 	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
       	mui.init();
